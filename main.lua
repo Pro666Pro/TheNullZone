@@ -40,7 +40,7 @@ Scripts:AddButton({
 })
 
 local Tab = Window:MakeTab({
-	Name = "Badges",
+	Name = "Anti",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -81,34 +81,26 @@ end
 	end    
 })
 
-Tab:AddDropdown({
-	Name = "Rob Plushie",
-	Default = "",
-	Options = {"Click", "Teleport"},
-	Callback = function(Value)
-if Value == "Click" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace._ugcQuestObjectBobPlushie.Handle.CFrame
-wait(0.5)
-fireclickdetector(workspace._ugcQuestObjectBobPlushie.ClickDetector)
-elseif Value == "Teleport" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace._ugcQuestObjectBobPlushie.Handle.CFrame
-end
-	end    
+local Teleport = Window:MakeTab({
+	Name = "Teleport",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
 })
 
-Tab:AddDropdown({
-	Name = "Teleport",
-	Default = "",
-	Options = {"Null", "Tinkever","Lobby"},
-	Callback = function(Value)
-if Value == "Null" then
-fireclickdetector(workspace.Model.Handle.ClickDetector)
-elseif Value == "Tinkever" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4833.31, -214, 800.529)
-wait(2)
-fireclickdetector(workspace:GetChildren()[13].Handle.ClickDetector)
-elseif Value == "Lobby" then
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5466, -1, -585)
-end
-	end    
+local Tp = Teleport:AddSection({
+	Name = "teleport"
+})
+
+Tp:AddButton({
+	Name = "Teleport Get Null Glove",
+	Callback = function()
+			 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5459.34521484375, -189.00048828125, 1845.4388427734375)
+	 end
+})
+
+Tp:AddButton({
+	Name = "Teleport Get Tinkerer Glove",
+	Callback = function()
+			 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(4845.7861328125, -214.0004119873047, 799.2669067382812)
+	 end
 })
